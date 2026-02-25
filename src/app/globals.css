@@ -34,29 +34,47 @@ header.site-header {
   align-items: center;
 }
 
-/* Navigation */
+/* Navigation – clean underline on hover (fashion site standard) */
+/* Navigation – Rounded pill style (circle jaise rounded ends) */
 .header-nav {
   display: flex;
-  gap: 32px;
+  gap: 16px;                    /* links ke beech space – adjust if too tight/wide */
+  align-items: center;
 }
 
 .header-nav a {
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;        /* thoda tight spacing for premium feel */
   text-transform: uppercase;
   color: var(--text-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
-  padding: 8px 2px;
+  
+  /* Pill / rounded shape – ye main change hai jo tum chahte ho */
+  background-color: #f8f8f8;    /* light gray bg – subtle rounded look */
+  padding: 8px 18px;            /* andar space – up-down kam, left-right zyada */
+  border-radius: 9999px;        /* 9999px se perfect circle/round ends banta hai */
+  transition: all 0.25s ease;   /* smooth hover animation */
+  white-space: nowrap;          /* text wrap na ho */
+  border: 1px solid #e8e8e8;    /* optional light border for definition */
 }
 
 .header-nav a:hover,
 .header-nav a:focus-visible {
-  color: var(--text-dark);
-  border-bottom: 2px solid var(--text-dark);
+  background-color: var(--text-dark);   /* black/dark on hover */
+  color: white;
+  border-color: var(--text-dark);
+  transform: translateY(-1px);          /* thoda upar uthne ka effect */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* light shadow for depth */
 }
 
+/* Active / current page link – same pill style but always "on" */
+.header-nav a.active {
+  background-color: var(--text-dark);
+  color: white;
+  border-color: var(--text-dark);
+  font-weight: 600;
+}
 /* Logo */
 .header-logo-wrapper {
   text-align: center;
@@ -105,12 +123,17 @@ header.site-header {
   }
 
   .header-nav {
-    display: none;   /* ← usually replaced with hamburger menu */
+    display: none;   /* hamburger menu ke liye space */
   }
 
   .header-logo {
     font-size: 24px;
     letter-spacing: 2.2px;
+  }
+
+  /* Mobile mein agar chahiye to gap kam kar sakte ho */
+  .header-actions {
+    gap: 16px;
   }
 }
 

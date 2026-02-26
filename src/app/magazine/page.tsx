@@ -1,7 +1,38 @@
 // app/page.tsx
-import Image from 'next/image';
+'use client'
+
+import Image from 'next/image'
 
 export default function Home() {
+  // Sample data – you can replace with real articles later
+  const fashionArticles = [
+    {
+      id: 1,
+      title: 'Dr. Martens – Geschenke, die Deine Liebsten auch noch nächstes Jahr tragen...',
+      author: 'GENEVA GARCIA',
+    },
+    {
+      id: 2,
+      title: 'Burberry-Geschenke. Personalisierung möglich.',
+      author: 'ILENIA SARMAN',
+    },
+    {
+      id: 3,
+      title: 'Mit Belstaff stilvoll aufsteigen: Phoenix Day ist da',
+      author: 'GENEVA GARCIA',
+    },
+    {
+      id: 4,
+      title: 'Dein Herbst Outfit, präsentiert von Levi’s®',
+      author: 'GENEVA GARCIA',
+    },
+    {
+      id: 5,
+      title: 'Das Must-have der Saison – Neue Trends 2025',
+      author: 'ILENIA SARMAN',
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-[#f8f7f5] text-gray-800 font-sans">
       {/* 1. Magazineize Title + Intro */}
@@ -14,7 +45,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 2. Four Category Images (zero gap on desktop) */}
+      {/* 2. Four Category Images */}
       <section className="pb-16 md:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-0 w-full">
           {/* Women's Fashion */}
@@ -92,7 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Fashion Artikel Section – EXACT text & formatting from your screenshot */}
+      {/* 4. Fashion Artikel Section */}
       <section className="pb-20 md:pb-32">
         <div className="pl-4 sm:pl-6 md:pl-8 lg:pl-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10 text-left">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wide mb-6 leading-tight">
@@ -117,6 +148,50 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* 5. Women's Fashion Cards – exact style from your screenshot */}
+      <section className="pb-20 md:pb-32">
+        <div className="pl-4 sm:pl-6 md:pl-8 lg:pl-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10 flex items-center justify-between mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wide">
+            Women's Fashion
+          </h2>
+          <span className="text-lg md:text-xl font-medium text-gray-700 flex items-center gap-1">
+            Zeig mir mehr &gt;
+          </span>
+        </div>
+
+        <div className="overflow-x-auto pb-6 scrollbar-hide">
+          <div className="flex gap-6 px-4 sm:px-6 md:px-8 lg:px-10">
+            {fashionArticles.map((article) => (
+              <div
+                key={article.id}
+                onClick={() => alert(`Blog für "${article.title}" öffnet sich\n\nSpäter: Artikel + Produkte unten`)}
+                className="group cursor-pointer w-[300px] flex-shrink-0 bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                {/* Image placeholder – replace src with real image */}
+                <div className="relative w-full h-[400px] bg-gray-200">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm font-medium">
+                    Bild
+                  </div>
+                </div>
+
+                {/* Black bottom bar */}
+                <div className="bg-black text-white p-5">
+                  <div className="text-xs uppercase tracking-wider opacity-70 mb-3">
+                    FASHION | ANZEIGE
+                  </div>
+                  <h3 className="text-base font-medium leading-tight mb-4 line-clamp-3">
+                    {article.title}
+                  </h3>
+                  <p className="text-xs uppercase tracking-wider opacity-70">
+                    VON {article.author}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }

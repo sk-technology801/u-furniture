@@ -2,33 +2,42 @@
 
 import Image from 'next/image'
 import FashionCard from '../components/FashionCard'
+
 export default function Home() {
-  const fashionArticles = [
-    {
-      id: 1,
-      title: 'Dr. Martens – Geschenke, die Deine Liebsten auch noch nächstes Jahr tragen...',
-      author: 'GENEVA GARCIA',
-    },
-    {
-      id: 2,
-      title: 'Burberry-Geschenke. Personalisierung möglich.',
-      author: 'ILENIA SARMAN',
-    },
-    {
-      id: 3,
-      title: 'Mit Belstaff stilvoll aufsteigen: Phoenix Day ist da',
-      author: 'GENEVA GARCIA',
-    },
-    {
-      id: 4,
-      title: 'Dein Herbst Outfit, präsentiert von Levi’s®',
-      author: 'GENEVA GARCIA',
-    },
-    {
-      id: 5,
-      title: 'Das Must-have der Saison – Neue Trends 2025',
-      author: 'ILENIA SARMAN',
-    },
+  // Women's Fashion articles
+  const womensArticles = [
+    { id: 1, title: 'Dr. Martens – Geschenke...', author: 'GENEVA GARCIA' },
+    { id: 2, title: 'Burberry-Geschenke...', author: 'ILENIA SARMAN' },
+    { id: 3, title: 'Mit Belstaff stilvoll...', author: 'GENEVA GARCIA' },
+    { id: 4, title: 'Dein Herbst Outfit...', author: 'GENEVA GARCIA' },
+    { id: 5, title: 'Das Must-have der Saison...', author: 'ILENIA SARMAN' },
+  ]
+
+  // Bed articles (sample – tum real titles daal sakte ho)
+  const bedArticles = [
+    { id: 6, title: 'Das perfekte Bett für erholsamen Schlaf 2025', author: 'EMMA TRIMBOLI' },
+    { id: 7, title: 'Boxspringbett Trends – Luxus im Schlafzimmer', author: 'GENEVA GARCIA' },
+    { id: 8, title: 'Nachhaltige Betten aus Holz und Naturmaterialien', author: 'ILENIA SARMAN' },
+    { id: 9, title: 'Stauraumbetten – Platzsparend & stylish', author: 'GENEVA GARCIA' },
+    { id: 10, title: 'Höhenverstellbare Betten für mehr Komfort', author: 'ILENIA SARMAN' },
+  ]
+
+  // Sofa articles
+  const sofaArticles = [
+    { id: 11, title: 'Modulare Sofas – Flexibel für jedes Wohnzimmer', author: 'EMMA TRIMBOLI' },
+    { id: 12, title: 'Ecksofas 2025 – Die beliebtesten Modelle', author: 'GENEVA GARCIA' },
+    { id: 13, title: 'Samt-Sofas – Luxuriöser Look für wenig Geld', author: 'ILENIA SARMAN' },
+    { id: 14, title: 'Sofa mit Schlaffunktion – Praktisch & modern', author: 'GENEVA GARCIA' },
+    { id: 15, title: 'Minimalistische Sofas in Skandinavischem Stil', author: 'ILENIA SARMAN' },
+  ]
+
+  // Chair articles
+  const chairArticles = [
+    { id: 16, title: 'Esszimmerstühle – Trends für 2025', author: 'EMMA TRIMBOLI' },
+    { id: 17, title: 'Bürostühle mit ergonomischem Design', author: 'GENEVA GARCIA' },
+    { id: 18, title: 'Designer-Sessel – Statement Pieces', author: 'ILENIA SARMAN' },
+    { id: 19, title: 'Gartenstühle – Robust & stylish für draußen', author: 'GENEVA GARCIA' },
+    { id: 20, title: 'Barhocker – Perfekt für die Küche oder Bar', author: 'ILENIA SARMAN' },
   ]
 
   return (
@@ -43,7 +52,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* 2. Four Category Images – EXACTLY as you had (no change) */}
+      {/* 2. Four Category Images */}
       <section className="pb-16 md:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-0 w-full">
           {/* Women's Fashion */}
@@ -147,7 +156,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Women's Fashion Cards Section – added exactly as per your screenshot */}
+      {/* 5. Women's Fashion Cards */}
       <section className="pb-20 md:pb-32">
         <div className="pl-4 sm:pl-6 md:pl-8 lg:pl-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10 flex items-center justify-between mb-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wide">
@@ -160,13 +169,87 @@ export default function Home() {
 
         <div className="overflow-x-auto pb-6 scrollbar-hide">
           <div className="flex gap-6 px-4 sm:px-6 md:px-8 lg:px-10">
-            {fashionArticles.map((article) => (
+            {womensArticles.map((article) => (
               <FashionCard
                 key={article.id}
                 id={article.id}
                 title={article.title}
                 author={article.author}
-                // image={`/images/article-${article.id}.jpg`} // ← uncomment when you have images
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Bed Cards – same style */}
+      <section className="pb-20 md:pb-32">
+        <div className="pl-4 sm:pl-6 md:pl-8 lg:pl-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10 flex items-center justify-between mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wide">
+            Bed
+          </h2>
+          <span className="text-lg md:text-xl font-medium text-gray-700 flex items-center gap-1">
+            Zeig mir mehr &gt;
+          </span>
+        </div>
+
+        <div className="overflow-x-auto pb-6 scrollbar-hide">
+          <div className="flex gap-6 px-4 sm:px-6 md:px-8 lg:px-10">
+            {bedArticles.map((article) => (
+              <FashionCard
+                key={article.id}
+                id={article.id}
+                title={article.title}
+                author={article.author}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Sofa Cards */}
+      <section className="pb-20 md:pb-32">
+        <div className="pl-4 sm:pl-6 md:pl-8 lg:pl-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10 flex items-center justify-between mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wide">
+            Sofa
+          </h2>
+          <span className="text-lg md:text-xl font-medium text-gray-700 flex items-center gap-1">
+            Zeig mir mehr &gt;
+          </span>
+        </div>
+
+        <div className="overflow-x-auto pb-6 scrollbar-hide">
+          <div className="flex gap-6 px-4 sm:px-6 md:px-8 lg:px-10">
+            {sofaArticles.map((article) => (
+              <FashionCard
+                key={article.id}
+                id={article.id}
+                title={article.title}
+                author={article.author}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Chair Cards */}
+      <section className="pb-20 md:pb-32">
+        <div className="pl-4 sm:pl-6 md:pl-8 lg:pl-10 pr-4 sm:pr-6 md:pr-8 lg:pr-10 flex items-center justify-between mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wide">
+            Chair
+          </h2>
+          <span className="text-lg md:text-xl font-medium text-gray-700 flex items-center gap-1">
+            Zeig mir mehr &gt;
+          </span>
+        </div>
+
+        <div className="overflow-x-auto pb-6 scrollbar-hide">
+          <div className="flex gap-6 px-4 sm:px-6 md:px-8 lg:px-10">
+            {chairArticles.map((article) => (
+              <FashionCard
+                key={article.id}
+                id={article.id}
+                title={article.title}
+                author={article.author}
               />
             ))}
           </div>
